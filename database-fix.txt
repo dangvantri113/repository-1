@@ -1,0 +1,172 @@
+1.CREATE TABLE admins
+(
+user_name varchar(255) PRIMARY KEY,
+user_pass varchar(10)
+);
+
+
+2.
+CREATE TABLE products
+(	
+pro_id int PRIMARY KEY,
+pro_name varchar(50),
+pro_price int,
+pro_color varchar(15),
+pro_shape varchar(15),
+pro_date date,
+pro_quantity int,
+pro_cat_id int,
+pro_off_id int,
+pro_charka varchar(500),
+pro_desrip varchar(500),
+pro_file varchar(500),
+);
+
+
+3.
+CREATE TABLE categories
+(
+cate_id int PRIMARY KEY,
+cate_name  varchar(100)
+);
+
+
+4.
+CREATE TABLE offers
+(
+off_id int PRIMARY KEY,
+off_value varchar(6),
+off_start date,
+off_end date
+);
+
+5.
+CREATE TABLE photos
+(
+photo_id int PRIMARY KEY,
+photo_link varchar(255),
+pro_id
+);
+
+
+
+
+
+
+*****Tao lien he cac bang*** Moi quan he 1-n la moi quan he bang 1 voi bnag nhieu, tao lien ket cam khoa bang nhieu sang bang 1.
+ALTER TABLE TENBAN NHIEU
+ADD CONSTRAINT FK_BANNHIEU_BANIT
+FOREIGN KEY(ID Bannhieu);
+REFERENCES BANGIT(ID BANIT);
+
+ALTER TABLE products
+ADD CONSTRAINT FK_products_categories
+FOREIGN KEY (pro_cat_id)
+REFERENCES categories(cate_id);
+
+
+ALTER TABLE products
+ADD CONSTRAINT FK_products_offers
+FOREIGN KEY(pro_off_id)
+REFERENCES offers(off_id);
+
+ALTER TABLE photos
+ADD CONSTRAINT FK_photos_products
+FOREIGN KEY(pro_id)
+REFERENCES products(pro_id);
+
+
+cateloges:
+
+INSERT INTO categories(cate_id, cate_name) values(1,'Bluce Lace agate');
+INSERT INTO categories(cate_id, cate_name) values(2,'Amazonite');
+INSERT INTO categories(cate_id, cate_name) values(3,'Amber');
+INSERT INTO categories(cate_id, cate_name) values(4,'Amethyst');
+INSERT INTO categories(cate_id, cate_name) values(5,'Apatite');
+INSERT INTO categories(cate_id, cate_name) values(6,'Bloodstone');
+INSERT INTO categories(cate_id, cate_name) values(7,'Celestite');
+INSERT INTO categories(cate_id, cate_name) values(8,'Cinnabar');
+INSERT INTO categories(cate_id, cate_name) values(9,'Carnelian');
+INSERT INTO categories(cate_id, cate_name) values(10,'Aventurine');
+INSERT INTO categories(cate_id, cate_name) values(11,'Aura quartzes');
+INSERT INTO categories(cate_id, cate_name) values(12,'Citrine');
+INSERT INTO categories(cate_id, cate_name) values(13,'Emerald');
+INSERT INTO categories(cate_id, cate_name) values(14,'Garnet');
+INSERT INTO categories(cate_id, cate_name) values(15,'Jade');
+INSERT INTO categories(cate_id, cate_name) values(16,'Luvulite');
+INSERT INTO categories(cate_id, cate_name) values(17,'Malachite');
+INSERT INTO categories(cate_id, cate_name) values(18,'Obsidian');
+INSERT INTO categories(cate_id, cate_name) values(19,'Opal');
+INSERT INTO categories(cate_id, cate_name) values(20,'Peridot');
+INSERT INTO categories(cate_id, cate_name) values(21,'Red Jasper');
+INSERT INTO categories(cate_id, cate_name) values(22,'Rose quartz');
+INSERT INTO categories(cate_id, cate_name) values(23,'Anyolite');
+INSERT INTO categories(cate_id, cate_name) values(24,'Selenite');
+INSERT INTO categories(cate_id, cate_name) values(25,'Sapphire');
+INSERT INTO categories(cate_id, cate_name) values(26,'Zincite');
+
+
+offers
+
+INSERT INTO offers(off_id,off_value) values(1,'10%');
+INSERT INTO offers(off_id,off_value) values(2,'20%');
+INSERT INTO offers(off_id,off_value) values(3,'30%');
+INSERT INTO offers(off_id,off_value) values(4,'40%');
+INSERT INTO offers(off_id,off_value) values(5,'50%');
+
+
+products
+
+
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(1,'Bluce Lace agate Geode',1000,'blue','Geode',1,1,1,'Throat, third eye, crown, heart','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(2,'Bluce Lace agate Pendulum',1100,'blue','Pendulum',2,1,2,'Throat, third eye, crown, heart','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(3,'Bluce Lace agate Bracelet',1200,'blue','Bracelet',3,1,3,'Throat, third eye, crown, heart','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(4,'Amazonite Wand',1000,'blue','Wand',4,2,4,'Spleen, solar plexus, heart, throat','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(5,'Amazonite Stone',1100,'blue','Stone',5,2,5,'Spleen, solar plexus, heart, throat','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(6,'Amber Ring',1200,'Brown','Ring',6,3,1,'Sacral, throat, higher heart','THE POWER OF SCREE');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(7,'Amber Stone',1000,'Yellow','Stone',7,3,2,'Sacral, throat, higher heart','THE POWER OF SCREE');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(8,'Amethyst Geode',1100,'Violet','Geode',5,4,3,'Third eye, crown, soma, soul star','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(9,'Amethyst Ring',1200,'Violet','Ring',6,4,4,'Third eye, crown, soma, soul star','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(10,'Apatite Sphere',1000,'blue','Sphere',4,5,5,'Third eye, base, solar plexus','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(11,'Bloodstone Stone',1100,'Red','Stone',3,6,1,'Throat, third eye, crown, soul star','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(12,'Celestite Geode',1200,'blue','Geode',2,7,2,' Base and sacral','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(13,'Celestite Sphrere',1000,'blue','Sphrere',5,7,3,' Base and sacral','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(14,'Cinnabar speciment',1100,'Red','speciment',6,8,4,' Base and sacral','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(15,'Cinnabar Stone',1200,'brown','Stone',7,8,5,' Base and sacral','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(16,'Carnelian Necklace',1000,'Red','Necklace',1,9,1,'Spleen, heart, higher heart ','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(17,'Carnelian Stone',1100,'orange','Stone',2,9,2,'Spleen, heart, higher heart ','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(18,'Aventurine necklace',1200,'green','necklace',3,10,3,'All chakras, depending on color; repairs the','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(19,'Aventurine ring',1000,'green','ring',4,10,4,'All chakras, depending on color; repairs the','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(20,'Aura quartzes geode',1100,'multi','geode',5,11,5,'Sacral; cleanses and energizes all chakras','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(21,'Citrine ring',1200,'orange','ring',6,12,1,'Third eye, heart','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(22,'Citrine Wand',1000,'brown','Wand',7,12,2,'Third eye, heart','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(23,'Emerald ring',1100,'green','ring',5,13,3,'Soma, third eye, solar plexus, heart; varies according to color','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(24,'Emerald specimen',1200,'green','specimen',6,13,4,'Soma, third eye, solar plexus, heart; varies according to color','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(25,'Garnet ring',1000,'red','ring',4,14,5,'Soma, third eye, solar plexus, heart; varies according to color','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(26,'Garnet bracelet',1100,'red','bracelet',3,14,1,'Soma, third eye, solar plexus, heart; varies according to color','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(27,'Jade stone',1200,'green','stone',2,15,2,' Heart, third eye, crown; aligns all chakras','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(28,'Jade bracelet',1000,'green','bracelet',5,15,3,' Heart, third eye, crown; aligns all chakras','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(29,'Luvulite ring',1100,'violet','ring',6,16,4,'Earth, base, sacral, heart, solar plexus','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(30,'Malachite speciment',1200,'green','speciment',7,17,5,'Earth star, base, sacral','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(31,'Malachite stone',1000,'green','stone',1,17,1,'Earth star, base, sacral','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(32,'Obsidian bracelet',1100,'black','bracelet',2,18,2,'Third eye, heart','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(33,'Obsidian wand',1200,'black','wand',3,18,3,'Third eye, heart','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(34,'Opal ring',1000,'rainbow','ring',4,19,4,' Heart, solar plexus','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(35,'Opal stone',1100,'rainbow','stone',5,19,5,' Heart, solar plexus','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(36,'Peridot necklace',1200,'green','necklace',6,20,1,'Earth star, base, sacral, solar plexus, throat','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(37,'Peridot specimen',1000,'green','specimen',7,20,2,'Earth star, base, sacral, solar plexus, throat','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(38,'Red Jasper specimen',1100,'brown','specimen',5,21,3,'Heart, higher heart (thymus), heart seed','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(39,'Red Jasper stone',1200,'yellow','stone',6,21,4,'Heart, higher heart (thymus), heart seed','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(40,'Rose quartz geode',1000,'pink','geode',4,22,5,'Base, sacral, heart, crown','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(41,'Rose quartz stone',1100,'pink','stone',3,22,1,'Base, sacral, heart, crown','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(42,'Anyolite specimen',1200,'green','specimen',2,23,2,'Crown, soul star, stellar gateway, and beyond','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(43,'Anyolite stone',1000,'green','stone',5,23,3,'Crown, soul star, stellar gateway, and beyond','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(44,'Selenite wand',1100,'white','wand',6,24,4,'Third eye','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(45,'Selenite sphere',1200,'white','sphere',7,24,5,'Third eye','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(46,'Sapphire ring',1000,'blue','ring',2,25,1,'Base and sacral, others according to color','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(47,'Sapphire stone',1100,'blue','stone',5,25,2,'Base and sacral, others according to color','THE POWER OF COMMUNICATION');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(48,'Zincite specimen',1200,'orange','specimen',6,26,3,'Base and sacral, others according to color','THE POWER OF FRIENDSHIP');
+INSERT INTO products(pro_id, pro_name, pro_price, pro_color, pro_shape, pro_quantity, pro_cat_id, pro_off_id, pro_charka, pro_desrip) values(49,'Zincite wand',1200,'orange','wand',7,26,4,'Base and sacral, others according to color','THE POWER OF FRIENDSHIP');
+
+
+
